@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+const imageUrl =
+    "https://images.squarespace-cdn.com/content/v1/60eb57465212723ac6fbb037/1dd3b9b3-97fc-424d-b509-b780b1042da6/Movement+on+Paper+-+action+shot+from+artist%27s+residency.jpg"
+const imageAltText = "Saffron painting"
+---
+
+<Layout title="About">
+    <main>
+        <div class="aboutText">
+            <p>
+                I am a painter and drawer, currently exploring self-portraiture,
+                contemporary culture, and the unavoidable influence of art
+                history.
+            </p>
+            <p>
+                A catalogue of my latest exhibition What Do I Look Like? is
+                available here. For sales, commissions, or anything else, please
+                get in touch:
+            </p>
+        </div>
+        <img src={imageUrl} alt={imageAltText} />
+    </main>
+</Layout>
