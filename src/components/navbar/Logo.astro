@@ -1,0 +1,23 @@
+---
+import { colors } from "../../styles/colors"
+export interface Props {
+    text: string
+}
+
+const { text } = Astro.props
+---
+
+<a href="/">{text}</a>
+
+<style define:vars={{ ...colors }}>
+    a {
+        color: var(--navbarLogo);
+        text-decoration: none;
+        font-family: merriweather;
+        font-size: 2em;
+
+        /* padding-left: 32px; */
+        /* padding-top: 32px; */
+        padding-bottom: 32px;
+    }
+</style>
