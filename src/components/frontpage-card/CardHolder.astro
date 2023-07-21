@@ -1,0 +1,26 @@
+---
+export interface Props {}
+---
+
+<div>
+    <slot />
+</div>
+
+<style>
+    div {
+        display: flex;
+        margin: 0;
+        height: 100%;
+        gap: 45px;
+        grid-auto-flow: column;
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width: 800px) {
+        div {
+            /* width: 100%; */
+            flex-wrap: wrap;
+            object-fit: cover;
+        }
+    }
+</style>
