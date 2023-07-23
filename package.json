@@ -11,6 +11,11 @@
     },
     "dependencies": {
         "@fontsource/merriweather": "^5.0.5",
-        "astro": "^2.4.1"
+        "astro": "^2.4.1",
+        "colcade": "^0.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.4.3",
+        "sass": "^1.64.0"
     }
 }
