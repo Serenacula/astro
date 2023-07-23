@@ -23,3 +23,5 @@ pnpm-debug.log*
 images
 *.jpg
 *.jpeg
+
+.vscode
