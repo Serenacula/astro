@@ -4,7 +4,11 @@ import NavigationBar from "../components/navbar/NavigationBar.astro"
 import Logo from "../components/navbar/Logo.astro"
 import NavItem from "../components/navbar/NavItem.astro"
 import "../styles/variables.scss"
+import {FaFacebookF} from "@react-icons/all-files/fa/FaFacebookF"
+import {BsInstagram} from "@react-icons/all-files/bs/BsInstagram"
 
+// const FaFacebookF = fa.FaFacebookF
+// const BsInstagram = bs.BsInstagram
 export interface Props {
     title: string
 }
@@ -39,6 +43,10 @@ const fullTitle = title
             />
             <NavItem slot="NavItem" href="/about" text="About" />
             <NavItem slot="NavItem" href="/shop" text="Shop" />
+            <div class="navIcons">
+                <BsInstagram />
+                <FaFacebookF />
+            </div>
         </NavigationBar>
         <slot />
     </body>
@@ -47,11 +55,15 @@ const fullTitle = title
 <style is:global lang="scss">
     @import "../styles/variables.scss";
 
-    // window {
-    //     overflow-x: hidden;
-    //     margin: 0;
-    //     padding: 0;
-    // }
+    .navIcons {
+        display: flex;
+        padding-top: 8px;
+    }
+    .navIcons > svg {
+        width: 1.2em;
+        height: 1.2em;
+        padding-left: 32px;
+    }
 
     html,
     body {
