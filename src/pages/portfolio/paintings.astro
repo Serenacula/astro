@@ -1,0 +1,14 @@
+---
+import ImageGrid from "../../components/image-grid/ImageGrid.astro"
+import Layout from "../../layouts/Layout.astro"
+const images = (await Astro.glob("./paintings/*")).map(
+    (image) => image.default.src as string
+)
+// console.log(images)
+---
+
+<Layout title="Paintings">
+    <main>
+        <ImageGrid images={images} />
+    </main>
+</Layout>
