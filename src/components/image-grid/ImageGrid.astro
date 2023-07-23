@@ -6,8 +6,6 @@ export interface Props {
 const images: string[] = Astro.props.images
 ---
 
-<script src="https://unpkg.com/colcade@0/colcade.js"></script>
-
 <div class="grid" data-colcade="columns: .grid-col, items: .grid-item">
     <div class="grid-col grid-col--1"></div>
     <div class="grid-col grid-col--2"></div>
@@ -20,6 +18,7 @@ const images: string[] = Astro.props.images
         ))
     }
 </div>
+<script src="./colcade.js"></script>
 
 <style lang="scss">
     @import "../../styles/variables.scss";
