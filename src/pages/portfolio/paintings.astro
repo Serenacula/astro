@@ -1,9 +1,9 @@
 ---
 import ImageGrid from "../../components/image-grid/ImageGrid.astro"
 import Layout from "../../layouts/Layout.astro"
-const images = (await Astro.glob("./paintings/*")).map(
-    (image) => image.default.src as string
-)
+const images = (await Astro.glob("../../../assets/images/paintings/*"))
+    .map((image) => image.default.src as string)
+    .reverse()
 // console.log(images)
 ---
 
