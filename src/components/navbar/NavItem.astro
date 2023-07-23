@@ -1,23 +1,31 @@
 ---
-import { colors } from "../../styles/colors"
 export interface Props {
     href: string
     text: string
+    additionalUnderlinePaths?: string[]
 }
 
-const { href, text } = Astro.props
-console.log(colors)
+const { href, text, additionalUnderlinePaths } = Astro.props
+
 let underline = false
 if (Astro.url.pathname === href) {
     underline = true
 }
+if (additionalUnderlinePaths) {
+    for (const path of additionalUnderlinePaths) {
+        if (Astro.url.pathname === path) {
+            underline = true
+        }
+    }
+}
 ---
 
 <li>
-    <a class={underline ? "underline" : ""} href={href}>{text}</a>
+    <a class={underline ? "underline" : "nounder"} href={href}>{text}</a>
 </li>
 
-<style define:vars={{ ...colors }}>
+<style lang="scss">
+    @import "../../styles/variables.scss";
     li {
         list-style-type: none;
         padding-left: 32px;
@@ -25,13 +33,13 @@ if (Astro.url.pathname === href) {
     }
 
     .underline {
-        border-bottom: 1px solid var(--navbarText);
+        border-bottom: 1px solid $navbarTextColor;
     }
 
     a {
         padding-bottom: 4px;
         text-decoration: none;
-        color: var(--navbarText);
+        color: $navbarTextColor;
         font-size: 1.1em;
         font-weight: 100;
         font-family: merriweather;

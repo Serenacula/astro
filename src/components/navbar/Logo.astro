@@ -1,5 +1,5 @@
 ---
-import { colors } from "../../styles/colors"
+import "../../styles/variables.scss"
 export interface Props {
     text: string
 }
@@ -9,9 +9,10 @@ const { text } = Astro.props
 
 <a href="/">{text}</a>
 
-<style define:vars={{ ...colors }}>
+<style lang="scss">
+    @import "../../styles/variables.scss";
     a {
-        color: var(--navbarLogo);
+        color: $navbarLogoColor;
         text-decoration: none;
         font-family: merriweather;
         font-size: 2em;
