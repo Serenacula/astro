@@ -1,14 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import ObscuredEmail from "../components/obscured-email/ObscuredEmail.astro"
 
 const imageUrl =
     "https://images.squarespace-cdn.com/content/v1/60eb57465212723ac6fbb037/1dd3b9b3-97fc-424d-b509-b780b1042da6/Movement+on+Paper+-+action+shot+from+artist%27s+residency.jpg"
 const imageAltText = "Saffron painting"
+const instagramUrl = "https://www.instagram.com/saffronmurraybrowne"
+const newsletterUrl =
+    "https://mailchi.mp/c756cb9c930b/sign-up-for-my-newsletter"
 ---
 
 <Layout title="About">
     <main>
         <div class="aboutText">
+            <h3>About</h3>
             <p>
                 I am a painter and drawer, currently exploring self-portraiture,
                 contemporary culture, and the unavoidable influence of art
@@ -19,7 +24,55 @@ const imageAltText = "Saffron painting"
                 available here. For sales, commissions, or anything else, please
                 get in touch:
             </p>
+            <p>
+                <ObscuredEmail email="boo@hoo.com" />
+            </p>
+            <p>
+                <a href={instagramUrl}>@saffronmurraybrowne</a>
+            </p>
+            <p>
+                <a href={newsletterUrl}
+                    >Sign up for my occasional newsletter to hear about upcoming
+                    exhibitions.</a
+                >
+            </p>
         </div>
         <img src={imageUrl} alt={imageAltText} />
     </main>
 </Layout>
+
+<style lang="scss">
+    @import "../styles/variables.scss";
+    main {
+        // width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        // flex-direction: row;
+        justify-content: space-between;
+        gap: 32px;
+
+        font-family: merriweather;
+        @media (max-width: $breakWidth) {
+            flex-wrap: wrap;
+        }
+    }
+
+    .aboutText {
+        // display: block;
+        width: 100%;
+        padding: 0 48px 48px;
+        /* height: 100%; */
+    }
+
+    p {
+        padding-bottom: 32px;
+    }
+
+    img {
+        // display: block;
+        width: 100%;
+        height: 100%;
+        object-position: 50% 50%;
+        object-fit: cover;
+    }
+</style>
