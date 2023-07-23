@@ -1,0 +1,29 @@
+---
+// const emailAddress = `boo@hoo.com`
+export interface Props {
+    email: string
+    class?: string
+}
+const { email, class: className } = Astro.props
+
+function obscure(email: string): string {
+    return email.split("@").join(" {_art_} ").split(".").join(" {_doht_} ")
+}
+
+const obscuredEmail = obscure(email)
+---
+
+<span data-className={className} data-replacementText={obscuredEmail}></span>
+
+<script is:inline>
+    function unobscure(email) {
+        return email.split(" {_art_} ").join("@").split(" {_doht_} ").join(".")
+    }
+    const list = document.querySelectorAll("[data-replacementText]")
+    for (const span of list) {
+        const email = unobscure(span.getAttribute("data-replacementText"))
+        span.outerHTML = `<a class=${span.getAttribute(
+            "data-className"
+        )} href="mailto:${email}">${email}</a>`
+    }
+</script>
