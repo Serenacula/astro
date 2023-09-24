@@ -1,22 +1,84 @@
+---
+import Basic from "./hamburgers/Basic.astro"
+---
+
 <nav>
-    <slot name="Logo" />
+    <slot name="logo" />
     <ul>
-        <slot name="NavItem" />
+        <slot name="navItem" />
+        <div class="socialIcons">
+            <slot name="social" />
+        </div>
         <slot />
     </ul>
+    <slot name="hamburger">
+        <Basic />
+    </slot>
 </nav>
 
-<style>
+<style lang="scss">
     nav {
         padding: 48px 0 64px;
         display: flex;
         justify-content: space-between;
-        /* align-content: flex-start; */
     }
 
     ul {
         display: flex;
         margin: 0;
-        /* padding: 1; */
+    }
+
+    .socialIcons {
+        display: flex;
+        padding-top: 8px;
+
+        :global(svg) {
+            width: 1.2em;
+            height: 1.2em;
+            padding-left: 32px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        body {
+            // background-color: olive;
+        }
+
+        nav {
+            flex-wrap: wrap;
+        }
+
+        ul {
+            display: none;
+            font-size: 2rem;
+
+            width: 100%;
+            overflow: hidden;
+        }
+
+        :global(body.navOpen) {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        :global(.navOpen) ul {
+            padding: 48px 0;
+            height: 100vh;
+            width: 100vw;
+
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+        }
+
+        .socialIcons {
+            margin: auto;
+            padding: 10px;
+
+            :global(svg) {
+                padding: 16px;
+            }
+        }
     }
 </style>

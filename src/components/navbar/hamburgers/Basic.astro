@@ -1,0 +1,76 @@
+---
+---
+
+<button class="navToggle">
+    <span></span>
+</button>
+
+<script>
+    const navToggle = document.querySelector(".navToggle")
+    navToggle?.addEventListener("click", () => {
+        document.body.classList.toggle("navOpen")
+    })
+</script>
+
+<style lang="scss">
+    button {
+        background: none;
+        border: none;
+
+        width: 48px;
+        height: 48px;
+        padding: 6px;
+
+        // display: block;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+    }
+
+    @media screen and (min-width: 600px) {
+        button {
+            display: none;
+        }
+    }
+
+    span {
+        display: block;
+        position: relative;
+    }
+
+    span,
+    span::before,
+    span::after {
+        width: 2rem;
+        height: 4px;
+        background: black;
+
+        transition: transform 150ms ease-in-out;
+    }
+
+    span::before,
+    span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+    }
+
+    span::before {
+        bottom: 7px;
+    }
+    span::after {
+        top: 7px;
+    }
+
+    :global(.navOpen) {
+        span {
+            transform: rotate(45deg);
+        }
+        span::after {
+            transform: translateY(-7px) rotate(-90deg);
+        }
+        span::before {
+            transform: translateY(7px);
+        }
+    }
+</style>

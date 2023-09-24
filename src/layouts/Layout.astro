@@ -4,11 +4,8 @@ import NavigationBar from "../components/navbar/NavigationBar.astro"
 import Logo from "../components/navbar/Logo.astro"
 import NavItem from "../components/navbar/NavItem.astro"
 import "../styles/variables.scss"
-import {FaFacebookF} from "@react-icons/all-files/fa/FaFacebookF"
-import {BsInstagram} from "@react-icons/all-files/bs/BsInstagram"
-
-// const FaFacebookF = fa.FaFacebookF
-// const BsInstagram = bs.BsInstagram
+import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF"
+import { BsInstagram } from "@react-icons/all-files/bs/BsInstagram"
 export interface Props {
     title: string
 }
@@ -31,9 +28,9 @@ const fullTitle = title
     </head>
     <body>
         <NavigationBar>
-            <Logo slot="Logo" text="Saffron Murray-Browne" />
+            <Logo slot="logo" text="Saffron Murray-Browne" />
             <NavItem
-                slot="NavItem"
+                slot="navItem"
                 href="/"
                 text="Portfolio"
                 additionalUnderlinePaths={[
@@ -41,12 +38,16 @@ const fullTitle = title
                     "/portfolio/drawings",
                 ]}
             />
-            <NavItem slot="NavItem" href="/about" text="About" />
-            <NavItem slot="NavItem" href="/shop" text="Shop" />
-            <div class="navIcons">
-                <BsInstagram />
-                <FaFacebookF />
-            </div>
+            <NavItem slot="navItem" href="/about" text="About" />
+            <NavItem slot="navItem" href="/shop" text="Shop" />
+            <BsInstagram
+                slot="social"
+                href="https://instagram.com/saffronmurraybrowne"
+            />
+            <FaFacebookF
+                slot="social"
+                href="https://facebook.com/saffronmbart"
+            />
         </NavigationBar>
         <slot />
     </body>
@@ -54,16 +55,6 @@ const fullTitle = title
 
 <style is:global lang="scss">
     @import "../styles/variables.scss";
-
-    .navIcons {
-        display: flex;
-        padding-top: 8px;
-    }
-    .navIcons > svg {
-        width: 1.2em;
-        height: 1.2em;
-        padding-left: 32px;
-    }
 
     html,
     body {
