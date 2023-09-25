@@ -1,0 +1,15 @@
+---
+import { BsFacebook } from "./BsFacebook.esm"
+import SocialTemplate from "../common/socialTemplate.astro"
+
+export interface Props {
+    href?: string
+    class?: string
+}
+
+const { href, class: className } = Astro.props
+---
+
+<SocialTemplate href={href} class={className}>
+    <BsFacebook />
+</SocialTemplate>

@@ -1,0 +1,31 @@
+---
+/**
+ * socialTemplate is built to use react icons
+ * use the @react-icons/all-files package to get more
+ * 
+ * @author Faylee
+ */
+export interface Props {
+    href?: string
+    class?: string
+}
+
+const { href = "", class: className } = Astro.props
+---
+
+<a href={href} class={className && className}>
+    <slot />
+</a>
+
+<style lang="scss">
+    a {
+        display: flex;
+        padding: 10px;
+        margin-left: 2em;
+
+        :global(svg) {
+            width: 1.2em;
+            height: 1.2em;
+        }
+    }
+</style>

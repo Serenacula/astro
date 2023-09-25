@@ -21,7 +21,7 @@ if (additionalUnderlinePaths) {
 ---
 
 <li>
-    <a class={underline ? "underline" : "nounder"} href={href}>{text}</a>
+    <a class={underline ? "underline" : "nounderline"} href={href}>{text}</a>
 </li>
 
 <style lang="scss">
@@ -44,7 +44,7 @@ if (additionalUnderlinePaths) {
         font-weight: 100;
         font-family: merriweather;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $breakWidth) {
         li {
             display: flex;
 

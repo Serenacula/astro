@@ -6,9 +6,8 @@ import Basic from "./hamburgers/Basic.astro"
     <slot name="logo" />
     <ul>
         <slot name="navItem" />
-        <div class="socialIcons">
-            <slot name="social" />
-        </div>
+
+        <slot name="social" />
         <slot />
     </ul>
     <slot name="hamburger">
@@ -17,6 +16,8 @@ import Basic from "./hamburgers/Basic.astro"
 </nav>
 
 <style lang="scss">
+    @import "../../styles/variables.scss";
+
     nav {
         padding: 48px 0 64px;
         display: flex;
@@ -28,18 +29,7 @@ import Basic from "./hamburgers/Basic.astro"
         margin: 0;
     }
 
-    .socialIcons {
-        display: flex;
-        padding-top: 8px;
-
-        :global(svg) {
-            width: 1.2em;
-            height: 1.2em;
-            padding-left: 32px;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $breakWidth) {
         body {
             // background-color: olive;
         }
@@ -70,15 +60,6 @@ import Basic from "./hamburgers/Basic.astro"
             flex-direction: column;
             align-content: center;
             align-items: center;
-        }
-
-        .socialIcons {
-            margin: auto;
-            padding: 10px;
-
-            :global(svg) {
-                padding: 16px;
-            }
         }
     }
 </style>
