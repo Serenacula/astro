@@ -6,17 +6,16 @@ export interface Props {}
     <slot />
 </div>
 
-<style>
+<style lang="scss">
+    @import "../../styles/variables.scss";
     div {
         display: flex;
         /* margin: 0; */
         height: 100%;
         gap: 45px;
         justify-content: space-between;
-    }
 
-    @media screen and (max-width: 800px) {
-        div {
+        @media screen and (max-width: $breakWidth) {
             flex-wrap: wrap;
         }
     }
