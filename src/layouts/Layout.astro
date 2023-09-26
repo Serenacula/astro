@@ -10,6 +10,9 @@ export interface Props {
     title: string
 }
 
+export const facebookUrl = "https://facebook.com/saffronmbart"
+export const instagramUrl = "https://instagram.com/saffronmurraybrowne"
+
 const { title } = Astro.props
 
 const fullTitle = title
@@ -40,11 +43,8 @@ const fullTitle = title
             />
             <NavItem slot="navItem" href="/about" text="About" />
             <NavItem slot="navItem" href="/shop" text="Shop" />
-            <Facebook slot="social" href="https://facebook.com/saffronmbart" />
-            <Instagram
-                slot="social"
-                href="https://instagram.com/saffronmurraybrowne"
-            />
+            <Facebook slot="social" href={facebookUrl} />
+            <Instagram slot="social" href={instagramUrl} />
         </NavigationBar>
         <slot />
     </body>

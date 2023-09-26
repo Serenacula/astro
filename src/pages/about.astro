@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout, { instagramUrl } from "../layouts/Layout.astro"
 import ObscuredEmail from "../components/obscured-email/ObscuredEmail.astro"
 import { Image } from "astro:assets"
 
@@ -7,7 +7,6 @@ const image = (await Astro.glob("../../assets/images/about/paper.jpg")).map(
     (image) => image.default as ImageMetadata
 )[0]
 const imageAltText = "Saffron painting"
-const instagramUrl = "https://www.instagram.com/saffronmurraybrowne"
 const newsletterUrl =
     "https://mailchi.mp/c756cb9c930b/sign-up-for-my-newsletter"
 ---
@@ -27,7 +26,7 @@ const newsletterUrl =
                 get in touch:
             </p>
             <p>
-                <ObscuredEmail email="boo@hoo.com" />
+                <ObscuredEmail email="saffronmurraybrowne@gmail.com" />
             </p>
             <p>
                 <a href={instagramUrl}>@saffronmurraybrowne</a>
