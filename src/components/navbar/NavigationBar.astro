@@ -6,11 +6,10 @@ import Basic from "./hamburgers/Basic.astro"
     <slot name="logo" />
     <ul>
         <slot name="navItem" />
-
+        <slot />
         <div class="social">
             <slot name="social" />
         </div>
-        <slot />
     </ul>
     <slot name="hamburger">
         <Basic />
@@ -56,24 +55,35 @@ import Basic from "./hamburgers/Basic.astro"
         :global(body.navOpen) {
             height: 100vh;
             overflow: hidden;
-        }
 
-        :global(.navOpen) ul {
-            padding: 48px 0;
-            height: 100vh;
-            width: 100vw;
+            ul {
+                padding: 48px 0;
+                height: 100vh;
+                width: 100vw;
 
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-            align-items: center;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                align-items: center;
 
-            .social {
-                margin-left: 0;
+                .social {
+                    margin-left: 0;
 
-                position: absolute;
-                bottom: 2em;
-                left: calc(50vw-auto);
+                    position: absolute;
+                    bottom: 2em;
+                    left: calc(50vw-auto);
+
+                    @media screen and (max-height: 560px) {
+                        right: 10vw;
+                    }
+                }
+                @media screen and (max-height: 560px) {
+                    padding: 16px 0;
+
+                    .social {
+                        right: 10vw;
+                    }
+                }
             }
         }
     }
