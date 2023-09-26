@@ -2,18 +2,26 @@
 import Layout from "../layouts/Layout.astro"
 import CardHolder from "../components/frontpage-card/CardHolder.astro"
 import Card from "../components/frontpage-card/Card.astro"
+
+const paintingImage = (
+    await Astro.glob("../../assets/images/frontpage/venus.jpg")
+).map((image) => image.default as ImageMetadata)[0]
+
+const drawingImage = (
+    await Astro.glob("../../assets/images/frontpage/falling.jpg")
+).map((image) => image.default as ImageMetadata)[0]
 ---
 
 <Layout title="">
     <main>
         <CardHolder>
             <Card
-                image="https://images.squarespace-cdn.com/content/v1/60eb57465212723ac6fbb037/1670428066870-48WZ7RJAUOYCU1DATUOI/2022+Venus+and+Mars+%282022_08_21+19_28_20+UTC%29+copy.jpg"
+                image={paintingImage}
                 text="Paintings"
                 href="/portfolio/paintings"
             />
             <Card
-                image="https://images.squarespace-cdn.com/content/v1/60eb57465212723ac6fbb037/1626097831102-YQ1JB4XACGM0JL50D9YM/img214.jpg"
+                image={drawingImage}
                 text="Drawings"
                 href="/portfolio/drawings"
             />

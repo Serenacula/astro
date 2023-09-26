@@ -1,15 +1,17 @@
 ---
+import type { ImageMetadata } from "astro"
+import { Image } from "astro:assets"
 export interface Props {
     href: string
     text: string
-    image: string
+    image: ImageMetadata
 }
 
 const { href, text, image } = Astro.props
 ---
 
 <a href={href}>
-    <img src={image} alt={text} />
+    <Image src={image} alt={text} loading={"eager"} />
     <div class="text-div">
         <h3>{text}</h3>
     </div>
