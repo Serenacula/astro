@@ -7,7 +7,9 @@ import Basic from "./hamburgers/Basic.astro"
     <ul>
         <slot name="navItem" />
 
-        <slot name="social" />
+        <div class="social">
+            <slot name="social" />
+        </div>
         <slot />
     </ul>
     <slot name="hamburger">
@@ -27,6 +29,11 @@ import Basic from "./hamburgers/Basic.astro"
     ul {
         display: flex;
         margin: 0;
+
+        .social {
+            display: flex;
+            margin-left: 2em;
+        }
     }
 
     @media screen and (max-width: $breakWidth) {
@@ -60,6 +67,14 @@ import Basic from "./hamburgers/Basic.astro"
             flex-direction: column;
             align-content: center;
             align-items: center;
+
+            .social {
+                margin-left: 0;
+
+                position: absolute;
+                bottom: 2em;
+                left: calc(50vw-auto);
+            }
         }
     }
 </style>
