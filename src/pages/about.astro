@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import ObscuredEmail from "../components/obscured-email/ObscuredEmail.astro"
+import { Image } from "astro:assets"
 
-const imageUrl =
-    "https://images.squarespace-cdn.com/content/v1/60eb57465212723ac6fbb037/1dd3b9b3-97fc-424d-b509-b780b1042da6/Movement+on+Paper+-+action+shot+from+artist%27s+residency.jpg"
+const image = (await Astro.glob("../../assets/images/about/paper.jpg")).map(
+    (image) => image.default as ImageMetadata
+)[0]
 const imageAltText = "Saffron painting"
 const instagramUrl = "https://www.instagram.com/saffronmurraybrowne"
 const newsletterUrl =
@@ -37,7 +39,7 @@ const newsletterUrl =
                 >
             </p>
         </div>
-        <img src={imageUrl} alt={imageAltText} />
+        <Image src={image} alt={imageAltText} />
     </main>
 </Layout>
 
