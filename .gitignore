@@ -20,8 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-images
-*.jpg
-*.jpeg
+# images
+# *.jpg
+# *.jpeg
 
 .vscode
