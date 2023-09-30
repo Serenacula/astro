@@ -2,7 +2,6 @@
 import GridItem from "../../components/image-grid/GridItem.astro"
 import ImageGrid from "../../components/image-grid/ImageGrid.astro"
 import Layout from "../../layouts/Layout.astro"
-import { Image } from "astro:assets"
 
 const images = (await Astro.glob("../../../assets/images/drawings/*")).map(
     (image) => image.default as ImageMetadata
