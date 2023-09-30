@@ -1,5 +1,6 @@
 ---
 import "../../styles/variables.scss"
+import Link from "../link/Link.astro"
 export interface Props {
     text: string
 }
@@ -7,7 +8,7 @@ export interface Props {
 const { text } = Astro.props
 ---
 
-<a href="/">{text}</a>
+<Link href="/">{text}</Link>
 
 <style lang="scss">
     @import "../../styles/variables.scss";

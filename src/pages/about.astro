@@ -2,6 +2,7 @@
 import Layout, { instagramUrl } from "../layouts/Layout.astro"
 import ObscuredEmail from "../components/obscured-email/ObscuredEmail.astro"
 import { Image } from "astro:assets"
+import Link from "../components/link/Link.astro"
 
 const image = (await Astro.glob("../../assets/images/about/paper.jpg")).map(
     (image) => image.default as ImageMetadata
@@ -9,33 +10,25 @@ const image = (await Astro.glob("../../assets/images/about/paper.jpg")).map(
 const imageAltText = "Saffron painting"
 const newsletterUrl =
     "https://mailchi.mp/c756cb9c930b/sign-up-for-my-newsletter"
+
+const about = (await Astro.glob("../markdown/about.md"))[0]
 ---
 
 <Layout title="About">
     <main>
         <div class="aboutText">
-            <h3>About</h3>
-            <p>
-                I am a painter and drawer, currently exploring self-portraiture,
-                contemporary culture, and the unavoidable influence of art
-                history.
-            </p>
-            <p>
-                A catalogue of my latest exhibition What Do I Look Like? is
-                available here. For sales, commissions, or anything else, please
-                get in touch:
-            </p>
+            <about.Content />
             <p>
                 <ObscuredEmail email="saffronmurraybrowne@gmail.com" />
             </p>
             <p>
-                <a href={instagramUrl}>@saffronmurraybrowne</a>
+                <Link href={instagramUrl}>@saffronmurraybrowne</Link>
             </p>
             <p>
-                <a href={newsletterUrl}
-                    >Sign up for my occasional newsletter to hear about upcoming
-                    exhibitions.</a
-                >
+                <Link href={newsletterUrl}>
+                    Sign up for my occasional newsletter to hear about upcoming
+                    exhibitions.
+                </Link>
             </p>
         </div>
         <Image src={image} alt={imageAltText} />

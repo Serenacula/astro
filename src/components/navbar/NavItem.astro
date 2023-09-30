@@ -1,4 +1,6 @@
 ---
+import Link from "../link/Link.astro"
+
 export interface Props {
     href: string
     text: string
@@ -21,7 +23,9 @@ if (additionalUnderlinePaths) {
 ---
 
 <li>
-    <a class={underline ? "underline" : "nounderline"} href={href}>{text}</a>
+    <Link class={underline ? "underline" : "nounderline"} href={href}>
+        {text}
+    </Link>
 </li>
 
 <style lang="scss">
