@@ -25,7 +25,7 @@ const fullTitle = title
         <meta charset="UTF-8" />
         <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{fullTitle}</title>
     </head>
@@ -34,15 +34,15 @@ const fullTitle = title
             <Logo slot="logo" text="Saffron Murray-Browne" />
             <NavItem
                 slot="navItem"
-                href="/"
+                href="./"
                 text="Portfolio"
                 additionalUnderlinePaths={[
-                    "/portfolio/paintings",
-                    "/portfolio/drawings",
+                    "./portfolio/paintings",
+                    "./portfolio/drawings",
                 ]}
             />
-            <NavItem slot="navItem" href="/about" text="About" />
-            <NavItem slot="navItem" href="/shop" text="Shop" />
+            <NavItem slot="navItem" href="./about" text="About" />
+            <NavItem slot="navItem" href="./shop" text="Shop" />
             <Facebook slot="social" href={facebookUrl} />
             <Instagram slot="social" href={instagramUrl} />
         </NavigationBar>
